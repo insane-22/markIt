@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MarkIt</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <ul class="nav_list">
+        <li>
+          <a href="#" class="nav-link active" data-target="colors-page">
+            <i class="bx bx-grid-alt"></i>
+            <span class="tooltip">Colors</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-target="highlights-page">
+            <i class="bx bx-grid-alt"></i>
+            <span class="tooltip">All Highlights</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-target="instructions-page">
+            <i class="bx bx-grid-alt"></i>
+            <span class="tooltip">Instructions</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="text">
+        <div class="logo-content">
+          <div class="logo">
+            <i class="bx bxs-bookmarks"></i>
+            <h1>MarkIt</h1>
+          </div>
+        </div>
+
+        <div id="colors-page" class="page active">
+          <h1>Colors</h1>
+        </div>
+        <div id="highlights-page" class="page" >
+          <h1>All Highlights</h1>
+        </div>
+        <div id="instructions-page" class="page" >
+          <h1>Instructions</h1>
+        </div>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

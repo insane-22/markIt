@@ -1,0 +1,131 @@
+body {
+  width: 300px;
+  height: 500px;
+  background-color: rgba(97, 152, 207, 0.25);
+  transition: 0.3s;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 30px;
+    background: #11101d;
+    padding: 6px 14px;
+    transition: all 0,5s ease;
+}
+
+.main .logo-content .logo{
+    /* color: #fff; */
+    font-size: 25px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}  
+
+.logo-content .logo i{
+    font-size: 30px;
+    font-weight: 450;
+}
+
+.nav_list {
+    margin-left: -45px;
+    /* left:0 */
+}
+
+.sidebar ul{
+    margin-top: 130px;
+    align-items: center;
+}
+
+.sidebar ul li{
+    /* padding-left: 2px; */
+    position: relative;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    list-style: none;
+    margin: 5px 5px;
+    line-height: 50px;
+}
+
+.sidebar ul li .tooltip{
+    position: absolute;
+    left: 112px;
+    text-align: center;
+    line-height: 35px;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 35px;
+    width: 122px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+    display: block;
+}
+
+.sidebar ul li:hover .tooltip{
+    top: 50%;
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+
+.sidebar ul li a.active .tooltip{
+    display: none;
+}
+
+.sidebar ul li a{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+}
+
+.sidebar ul li a:hover{
+    color: #11101d;
+    background: #fff;
+}
+
+.sidebar ul li a.active{
+    color: #11101d;
+    background: #fff;
+}
+
+.sidebar ul li a i{
+    height: 50px;
+    margin-left: 5px;
+    min-width: 20px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.main{
+    position: absolute;
+    height: 100%;
+    width: 270px;
+    left: 55px;
+}
+
+.main .text{
+    margin-left: 5px;
+    /* font-size: 25px; */
+    font-weight: 500;
+    color: #1d1b31;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
