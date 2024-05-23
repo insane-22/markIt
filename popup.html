@@ -8,26 +8,27 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="ui-css/popup.css" />
+    <link rel="stylesheet" href="ui-css/colors.css" />
   </head>
   <body>
     <div class="sidebar">
       <ul class="nav_list">
         <li>
           <a href="#" class="nav-link active" data-target="colors-page">
-            <i class='bx bxs-palette' ></i>
+            <i class="bx bxs-palette"></i>
             <span class="tooltip">Colors</span>
           </a>
         </li>
         <li>
           <a href="#" class="nav-link" data-target="highlights-page">
-            <i class='bx bxs-note'></i>
+            <i class="bx bxs-note"></i>
             <span class="tooltip">All Highlights</span>
           </a>
         </li>
         <li>
           <a href="#" class="nav-link" data-target="instructions-page">
-            <i class='bx bxs-book-content' ></i>
+            <i class="bx bxs-book-content"></i>
             <span class="tooltip">Instructions</span>
           </a>
         </li>
@@ -43,17 +44,89 @@
         </div>
 
         <div id="colors-page" class="page active">
-          <h1>Colors</h1>
+          <div class="colors-section">
+            <div
+              id="selected-color"
+              class="colour"
+              style="background-color: #cfffdf"
+            >
+              <div class="change-color-button" class="material-icons">
+                <i class="bx bxs-edit-alt"></i>
+                <!-- <i class='bx bx-right-top-arrow-circle' ></i> -->
+              </div>
+            </div>
+            <div id="colors-list">
+              <!-- A list of <div class="color"> elements goes here -->
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+              <div class="color"></div>
+            </div>
+            <div class="change-color">
+              <h3>Customize:</h3>
+              <form id="change-color-form" class="modal">
+                <div>
+                  <fieldset>
+                    <label for="highlight-color">Highlight Color:</label>
+                    <input type="color" name="highlight-color" />
+                  </fieldset>
+                  <fieldset>
+                    <fieldset>
+                      <input type="checkbox" name="use-text-color" />
+                      <label for="use-text-color">Change text color</label>
+                    </fieldset>
+                    <fieldset disabled id="text-color-fieldset">
+                      <label for="text-color">Text Color:</label>
+                      <input type="color" name="text-color" />
+                    </fieldset>
+                  </fieldset>
+                </div>
+
+                <div class="modal-actions">
+                  <input
+                    type="submit"
+                    class="modal-button modal-action-confirm"
+                    value="Confirm"
+                  />
+                </div>
+              </form>
+              <div class="example-text-div">
+                <h2>Example</h2>
+                <p>
+                  Thankyou for choosing MarkIt.
+                  <span class="example-text"
+                    >We promise you the best facilities and hope you will have a
+                    great experience.</span
+                  >
+                  Feel free to report any errors or bugs.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="controls-section">
+            <div id="toggle-button">Toggle cursor</div>
+            <div
+              class="shortcut-section"
+              title="Highlight the currently selected text using this keyboard shortcut"
+            >
+              <span>Highlight shortcut: </span>
+              <span class="shortcut-link">
+                <span class="shortcut-link-text">Alt+H</span>
+                <span class="material-icons">edit</span>
+              </span>
+            </div>
+          </div> -->
         </div>
-        <div id="highlights-page" class="page" >
+        <div id="highlights-page" class="page">
           <h1>All Highlights</h1>
         </div>
-        <div id="instructions-page" class="page" >
+        <div id="instructions-page" class="page">
           <h1>Instructions</h1>
         </div>
       </div>
     </div>
 
-    <script src="popup.js"></script>
+    <script src="ui-js/popup.js"></script>
   </body>
 </html>

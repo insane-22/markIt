@@ -1,0 +1,250 @@
+.settings {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+}
+
+.colors-section {
+  width: 250px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  margin: 10px 13px 0 13px;
+}
+
+#colors-list {
+  position: absolute;
+  top: 45px;
+  left: 39px;
+  width: 160px;
+  height: 160px;
+  transform: translate(-50%, -50%);
+}
+
+.colour {
+  box-sizing: border-box;
+  height: 24px;
+  width: 24px;
+  margin: 4px;
+
+  cursor: pointer;
+  border: 2px solid #5a5a5a;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.color {
+  box-sizing: border-box;
+  height: 24px;
+  width: 24px;
+  margin: 4px;
+
+  cursor: pointer;
+  border: 2px solid #5a5a5a;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.color:nth-child(1) {
+  top: calc(50% + 60px * sin(0deg));
+  left: calc(50% + 60px * cos(0deg));
+  transform: translate(-50%, -50%);
+}
+
+.color:nth-child(2) {
+  top: calc(50% + 60px * sin(30deg));
+  left: calc(50% + 60px * cos(30deg));
+  transform: translate(-50%, -50%);
+}
+
+.color:nth-child(3) {
+  top: calc(50% + 60px * sin(60deg));
+  left: calc(50% + 60px * cos(60deg));
+  transform: translate(-50%, -50%);
+}
+
+.color:nth-child(4) {
+  top: calc(50% + 60px * sin(90deg));
+  left: calc(50% + 60px * cos(90deg));
+  transform: translate(-50%, -50%);
+}
+
+.color:nth-child(5) {
+  top: calc(50% + 60px * sin(120deg));
+  left: calc(50% + 60px * cos(120deg));
+  transform: translate(-50%, -50%);
+}
+
+#selected-color {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.change-color-button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  bottom: -9px;
+  right: -1px;
+
+  cursor: pointer;
+  font-size: 26px;
+  border-radius: 50%;
+  background-color: rgba(196, 196, 196, 0.23);
+}
+
+#selected-color:hover .change-color-button,
+.change-color-button:hover {
+  background-color: rgba(196, 196, 196, 0.53);
+}
+
+/* color change */
+.change-color {
+  margin-top: 0px;
+}
+
+.change-color h3 {
+  margin-left: 100px;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.modal-button {
+  box-sizing: content-box;
+  height: 35px;
+  padding: 4px 15px 0 15px;
+
+  cursor: pointer;
+  /* font-size: 20px; */
+  font-weight: bold;
+  background-color: #e7d531;;
+  border: 0;
+  border-radius: 7px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.modal fieldset {
+  border: 0;
+  padding: 0;
+  margin: 2px 0;
+}
+
+.modal fieldset fieldset {
+  margin: 10px;
+}
+
+.modal label {
+    font-size: 12px;
+}
+
+.modal input[type="color"] {
+  width: 80px;
+  height: 20px;
+  border: none;
+}
+
+.modal fieldset[disabled] label {
+  color: #c3c3c3;
+}
+
+#text-color-fieldset {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.example-text {
+  background-color: #cfffdf;
+}
+
+.example-text-div {
+  width: 90%;
+}
+
+/* .controls-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 8px;
+}
+
+#toggle-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 190px;
+    height: 40px;
+    margin: 10px 0;
+    padding-top: 4px;
+
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #fdd33c;
+    border: 0;
+    border-radius: 7px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#toggle-button > span {
+    margin-bottom: -4px;
+}
+
+.shortcut-section {
+    font-size: 14px;
+}
+
+.shortcut-link {
+    display: inline-flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.shortcut-link-text {
+    text-decoration: underline;
+}
+
+.shortcut-link .material-icons {
+    margin-left: 4px;
+    font-size: 16px;
+} */
