@@ -1,10 +1,3 @@
-// let colors = document.querySelector(".colors")
-// let btn = document.querySelector("#btn")
-
-// colors.onclick = function(){
-//   colors.classList.toggle("active")
-// }
-
 document.addEventListener("DOMContentLoaded", () => {
   const sidebarLinks = document.querySelectorAll(".nav-link");
   const pages = document.querySelectorAll(".page");
@@ -12,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   sidebarLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-      // console.log(link)
 
       sidebarLinks.forEach((link) => link.classList.remove("active"));
       link.classList.add("active");
