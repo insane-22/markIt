@@ -1,21 +1,10 @@
-.settings {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  justify-content: center;
-  align-items: center;
-  height: 140px;
-}
-
 .colors-section {
-  width: 250px;
+  width: 270px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
-  margin: 10px 13px 0 13px;
+  margin: -10px 13px 0 13px;
 }
 
 #colors-list {
@@ -87,27 +76,6 @@
   height: 80px;
 }
 
-.change-color-button {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 32px;
-  width: 32px;
-  bottom: -9px;
-  right: -1px;
-
-  cursor: pointer;
-  font-size: 26px;
-  border-radius: 50%;
-  background-color: rgba(196, 196, 196, 0.23);
-}
-
-#selected-color:hover .change-color-button,
-.change-color-button:hover {
-  background-color: rgba(196, 196, 196, 0.53);
-}
-
 .change-color {
   margin-top: 0px;
 }
@@ -150,7 +118,7 @@
   cursor: pointer;
   /* font-size: 20px; */
   font-weight: bold;
-  background-color: #e7d531;;
+  background-color: #e7d531;
   border: 0;
   border-radius: 7px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -174,7 +142,7 @@
 }
 
 .modal label {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .modal input[type="color"] {
@@ -198,55 +166,5 @@
 }
 
 .example-text-div {
-  width: 90%;
+  width: 100%;
 }
-
-/* .controls-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 8px;
-}
-
-#toggle-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    width: 190px;
-    height: 40px;
-    margin: 10px 0;
-    padding-top: 4px;
-
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: #fdd33c;
-    border: 0;
-    border-radius: 7px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-#toggle-button > span {
-    margin-bottom: -4px;
-}
-
-.shortcut-section {
-    font-size: 14px;
-}
-
-.shortcut-link {
-    display: inline-flex;
-    align-items: center;
-
-    cursor: pointer;
-}
-
-.shortcut-link-text {
-    text-decoration: underline;
-}
-
-.shortcut-link .material-icons {
-    margin-left: 4px;
-    font-size: 16px;
-} */

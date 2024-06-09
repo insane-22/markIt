@@ -3,28 +3,42 @@
   "name": "MarkIt",
   "version": "0.0.1",
   "description": "Annotate webpages with highlights and notes.",
+
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "logo.png"
+  },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": "logo.png"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["contentScript.js"]
+      "js": ["lib/jquery-3.7.1.min.js"],
+      "css": ["ui-css/tools.css", "ui-css/notes.css"]
     }
   ],
-  "options_page": "options.html",
-  "background": {
-    "service_worker": "background.js"
-  },
   "permissions": [
     "activeTab",
     "storage",
     "contextMenus",
     "tabs",
-    "bookmarks",
-    "scripting"
+    "scripting",
+    "unlimitedStorage"
   ],
   "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [
+    {
+      "resources": ["tools.html", "tools.css", "notes.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
   "commands": {
     "_execute_action": {
       "suggested_key": {
@@ -33,21 +47,6 @@
         "mac": "B+Ctrl",
         "windows": "B+Ctrl"
       }
-    },
-    "highlight": {
-      "suggested_key": {
-        "chromeos": "Ctrl+Shift+H",
-        "mac": "Command+Shift+H",
-        "windows": "Ctrl+Shift+H"
-      },
-      "description": "Highlight selected text"
-    },
-    "add_note": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+N",
-        "mac": "Command+Shift+N"
-      },
-      "description": "Add note to highlighted text"
     }
   }
 }

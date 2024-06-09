@@ -1,0 +1,176 @@
+.highlights {
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.no-highlight {
+  margin-top: 100px;
+  font-size: 20px;
+  text-align: center;
+  color: #555;
+}
+
+.notesDiv {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 12px;
+  box-sizing: border-box;
+}
+
+.notes-url {
+  color: gray;
+  font-size: 16px;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+
+hr {
+  width: 100%;
+  border-color: rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+details > summary {
+  list-style: none;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+details > summary:hover {
+  background-color: #e0e0e0;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.detail {
+  margin: 15px 0;
+  padding: 0 5px;
+  width: 100%;
+}
+
+.highlight-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-left: 5px solid #2196f3;
+  background-color: #ffffff;
+  border-radius: 4px;
+  word-wrap: break-word;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.highlight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.highlight-text {
+  font-weight: bold;
+  color: #333;
+}
+
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.highlight-note {
+  color: #666;
+  word-wrap: break-word;
+}
+
+.delete-highlight-btn{
+  background: none;
+  border: none;
+  color: #f44336;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+.delete-note-btn:hover {
+  color: #d32f2f;
+}
+
+.delete-note-btn i {
+  font-size: 14px;
+}
+
+.delete-note-btn {
+  background: none;
+  border: none;
+  color: #d38d38;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+.delete-highlight-btn:hover {
+  color: #d32f2f;
+}
+
+.delete-highlight-btn i {
+  font-size: 20px;
+}
+
+#export-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#export-btn:hover {
+  background-color: #1976d2;
+  transform: scale(1.05);
+}
+
+#export-btn:active {
+  background-color: #1565c0;
+  transform: scale(1);
+}
+
+#search-box,
+#date-filter {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+#search-box:focus,
+#date-filter:focus {
+  border-color: #2196f3;
+  outline: none;
+}

@@ -3,16 +3,27 @@ const DEFAULT_COLORS = [
   { title: "green", color: "rgb(68, 255, 147)" },
   { title: "blue", color: "rgb(66, 229, 255)" },
   { title: "pink", color: "rgb(244, 151, 255)" },
+  { title: "pink", color: "rgb(244, 151, 255)" },
   { title: "dark", color: "rgb(52, 73, 94)", textColor: "rgb(255, 255, 255)" },
 ];
 
 const DEFAULT_COLOR = { title: "yellow" };
-// let currentColor = { title: "blue" }; // Default current color
 
-// Initialize currentColor from storage
-chrome.storage.sync.get("currentColor", (data) => {
-  if (data.currentColor) {
-    console.log("Initialized currentColor:", data.currentColor);
+chrome.runtime.onInstalled.addListener(async () => {
+  chrome.contextMenus.removeAll();
+
+  chrome.contextMenus.create({
+    title: "Highlight",
+    id: "highlight",
+    contexts: ["selection"],
+  });
+});
+
+chrome.contextMenus.onClicked.addListener(async ({ menuItemId }) => {
+  switch (menuItemId) {
+    case "highlight":
+      await highlightText();
+      break;
   }
 });
 
@@ -32,7 +43,16 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
         .catch((error) => {
           sendResponse({ success: false, error });
         });
-      return true; // Return true to indicate async response
+      return true; 
+    case "get-highlights":
+      getHighlights()
+        .then((highlights) => {
+          sendResponse({ success: true, response: highlights });
+        })
+        .catch((error) => {
+          sendResponse({ success: false, error });
+        });
+      return true; 
     case "get-current-color":
       getCurrentColor()
         .then((color) => {
@@ -41,7 +61,7 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
         .catch((error) => {
           sendResponse({ success: false, error });
         });
-      return true; // Return true to indicate async response
+      return true; 
     case "get-color-options":
       getColorOptions()
         .then((colors) => {
@@ -50,15 +70,43 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
         .catch((error) => {
           sendResponse({ success: false, error });
         });
-      return true; // Return true to indicate async response
+      return true; 
+    case "highlight":
+      highlightText()
+        .then(() => {
+          sendResponse({ success: true });
+        })
+        .catch((error) => {
+          sendResponse({ success: false, error });
+        });
+      return true;
+    case "save-highlights":
+      chrome.storage.local.set({ highlights: request.highlights }, () => {
+        sendResponse({ success: true });
+      });
+      return true;
     default:
       sendResponse({ success: false, error: "Unknown action" });
   }
 });
 
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, _tab) => {
+  if (changeInfo.url) {
+    if (changeInfo.url.startsWith("chrome://")) {
+      console.log("Skipping chrome:// URL");
+      return;
+    }
+    loadPageHighlights(tabId, changeInfo.url);
+  }
+});
+
+async function loadPageHighlights(tabId, url) {
+  await executeInTab(tabId, { file: "lib/jquery-3.7.1.min.js" });
+  await executeInTab(tabId, { file: "injectionScript.js" });
+}
+
 async function getCurrentColor() {
   const data = await chrome.storage.sync.get("currentColor");
-  // console.log(data);
   const colorTitle = data.currentColor
     ? data.currentColor
     : DEFAULT_COLOR.title;
@@ -72,10 +120,14 @@ async function getCurrentColor() {
 function getColorOptions() {
   return new Promise((resolve, _reject) => {
     chrome.storage.sync.get({ colors: DEFAULT_COLORS }, ({ colors }) => {
-      console.log("Fetched color options:", colors);
       resolve(colors);
     });
   });
+}
+
+async function getHighlights() {
+  const { highlights } = await chrome.storage.local.get({ highlights: [] });
+  return highlights;
 }
 
 function changeColor(color) {
@@ -102,4 +154,38 @@ async function editColor(title, color, textColor) {
   } else {
     throw new Error("Color not found");
   }
+}
+
+async function getCurrentTab() {
+  const queryOptions = { active: true, lastFocusedWindow: true };
+  const [tab] = await chrome.tabs.query(queryOptions);
+  // console.log("Current tab:", tab);
+  return tab;
+}
+
+async function executeInCurrentTab(opts) {
+  const tab = await getCurrentTab();
+  return executeInTab(tab.id, opts);
+}
+
+async function executeInTab(tabId, { file }) {
+  try {
+    console.log("Executing script in tab:", tabId, { file });
+    await chrome.scripting.executeScript({
+      target: { tabId, allFrames: true },
+      files: [file],
+    });
+
+    if (chrome.runtime.lastError !== undefined) {
+      console.log(chrome.runtime.lastError);
+    }
+  } catch (error) {
+    console.error(error);
+    console.log(error);
+  }
+}
+
+async function highlightText() {
+  await executeInCurrentTab({ file: "lib/jquery-3.7.1.min.js" });
+  await executeInCurrentTab({ file: "injectionScript.js" });
 }

@@ -1,10 +1,12 @@
 body {
-  width: 300px;
-  height: 500px;
-  background-color: rgba(97, 152, 207, 0.25);
+  width: 360px;
+  height: 560px;
   transition: 0.3s;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .sidebar {
@@ -14,51 +16,30 @@ body {
   height: 100%;
   width: 30px;
   background: #11101d;
-  padding: 6px 0;
-  transition: all 0, 5s ease;
+  padding: 10px 0;
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav_list {
   padding: 0;
   list-style: none;
+  width: 100%;
 }
 
 .sidebar ul {
-  margin-top: 130px;
+  margin-top: 150px;
   padding: 0;
 }
 
 .sidebar ul li {
   position: relative;
   height: 50px;
-  margin: 5px 0;
-}
-
-.sidebar ul li .tooltip {
-  position: absolute;
-  left: 100px;
-  text-align: center;
-  line-height: 35px;
-  transform: translate(-50%, -50%);
-  height: 35px;
-  width: 122px;
-  background: #fff;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  transition: 0s;
-  opacity: 0;
-  pointer-events: none;
-  display: block;
-}
-
-.sidebar ul li:hover .tooltip {
-  top: 50%;
-  transition: all 0.5s ease;
-  opacity: 1;
-}
-
-.sidebar ul li a.active .tooltip {
-  display: none;
+  margin: 10px 0;
+  width: 100%;
 }
 
 .sidebar ul li a {
@@ -68,8 +49,9 @@ body {
   height: 60%;
   align-items: center;
   text-decoration: none;
-  border-radius: 22px;
+  border-radius: 12px;
   transition: all 0.4s ease;
+  width: 100%;
 }
 
 .sidebar ul li a:hover,
@@ -79,14 +61,16 @@ body {
 }
 
 .sidebar ul li a i {
-  font-size: 15px;
+  font-size: 24px;
 }
 
 .main {
-  position: absolute;
+  margin-left: 30px;
+  /* padding: 20px; */
   height: 100%;
-  width: 100%;
-  left: 35px;
+  width: calc(100% - 30px);
+  overflow-y: auto;
+  background-color: #f0f0f0;
 }
 
 .main .text {
@@ -96,9 +80,8 @@ body {
 .logo-content .logo {
   font-size: 25px;
   display: flex;
-  width: 100%;
-  height: 50px;
   align-items: center;
+  color: #11101d;
 }
 
 .logo-content .logo i {
@@ -112,4 +95,25 @@ body {
 
 .page.active {
   display: block;
+}
+
+.instructions-section {
+  width: 70%;
+  background: #f9f9f9;
+  padding: 0 20px 20px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: -30px;
+  margin-left: 20px;
+}
+.instructions-section h2 {
+  color: #4caf50;
+  margin-top: 0;
+}
+.instructions-section ol {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+.instructions-section li {
+  margin: 10px 0;
 }

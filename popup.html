@@ -8,8 +8,10 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+    <script src="lib/jspdf.umd.min.js"></script>
     <link rel="stylesheet" href="ui-css/popup.css" />
     <link rel="stylesheet" href="ui-css/colors.css" />
+    <link rel="stylesheet" href="ui-css/highlights.css" />
   </head>
   <body>
     <div class="sidebar">
@@ -17,19 +19,16 @@
         <li>
           <a href="#" class="nav-link active" data-target="colors-page">
             <i class="bx bxs-palette"></i>
-            <span class="tooltip">Colors</span>
           </a>
         </li>
         <li>
           <a href="#" class="nav-link" data-target="highlights-page">
             <i class="bx bxs-note"></i>
-            <span class="tooltip">All Highlights</span>
           </a>
         </li>
         <li>
           <a href="#" class="nav-link" data-target="instructions-page">
             <i class="bx bxs-book-content"></i>
-            <span class="tooltip">Instructions</span>
           </a>
         </li>
       </ul>
@@ -49,21 +48,13 @@
               id="selected-color"
               class="colour"
               style="background-color: #cfffdf"
-            >
-              <div class="change-color-button" class="material-icons">
-                <i class="bx bxs-edit-alt"></i>
-                <!-- <i class='bx bx-right-top-arrow-circle' ></i> -->
-              </div>
-            </div>
-            <div id="colors-list">
-              <!-- <div class="color"></div>
-              <div class="color"></div>
-              <div class="color"></div>
-              <div class="color"></div>
-              <div class="color"></div> -->
-            </div>
+            ></div>
+            <div id="colors-list"></div>
             <div class="change-color">
-              <h2 class="modal-title">Customize the "<span id="change-color-title">yellow</span>" color</h2>
+              <h2 class="modal-title">
+                Customize the "<span id="change-color-title">yellow</span>"
+                color
+              </h2>
               <h3>Customize:</h3>
               <form id="change-color-form" class="modal">
                 <div>
@@ -100,35 +91,62 @@
                     >We promise you the best facilities and hope you will have a
                     great experience.</span
                   >
-                  Feel free to report any errors or bugs.
+                  Feel free to report any errors or bugs if you come across
+                  some.
+                  <span class="example-text-2">Happy Highlighting :) </span>
                 </p>
               </div>
             </div>
           </div>
-          <!-- <div class="controls-section">
-            <div id="toggle-button">Toggle cursor</div>
-            <div
-              class="shortcut-section"
-              title="Highlight the currently selected text using this keyboard shortcut"
-            >
-              <span>Highlight shortcut: </span>
-              <span class="shortcut-link">
-                <span class="shortcut-link-text">Alt+H</span>
-                <span class="material-icons">edit</span>
-              </span>
-            </div>
-          </div> -->
         </div>
         <div id="highlights-page" class="page">
-          <h1>All Highlights</h1>
+          <div class="highlights">
+            <input
+              type="text"
+              id="search-box"
+              placeholder="Search highlights or notes..."
+            />
+            <input type="date" id="date-filter" />
+            <button id="export-btn">Export as PDF</button>
+            <div class="notesDiv"></div>
+          </div>
         </div>
         <div id="instructions-page" class="page">
-          <h1>Instructions</h1>
+          <div class="instructions-section">
+            <h1>Instructions</h1>
+
+            <h2>How to Highlight</h2>
+            <ol>
+              <li>Select the text you want to highlight.</li>
+              <li>
+                Right-click the selected text and choose the "Highlight" option
+                from the context menu.
+              </li>
+              <li>
+                The selected text will be highlighted with the current active
+                color.
+              </li>
+            </ol>
+
+            <h2>How to Add a Note</h2>
+            <ol>
+              <li>
+                Hover over your target highlight, you would see an options popup. 
+              </li>
+              <li>Click the "Add Note" button, which is second option.</li>
+              <li>Type your note and save it.</li>
+              <li>
+                Your note will appear in the highlights list and can be searched
+                or filtered by date.
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
     </div>
 
     <script src="ui-js/popup.js"></script>
     <script src="ui-js/colors.js"></script>
+    <script src="ui-js/highlights.js"></script>
   </body>
 </html>
