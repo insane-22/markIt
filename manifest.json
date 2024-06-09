@@ -8,11 +8,11 @@
     "service_worker": "background.js"
   },
   "icons": {
-    "128": "logo.png"
+    "128": "assets/logo.png"
   },
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "logo.png"
+    "default_icon": "assets/logo.png"
   },
   "content_scripts": [
     {
